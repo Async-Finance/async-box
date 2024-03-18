@@ -1,0 +1,7 @@
+ignition/deployments
+typechain-types
+artifacts
+cache
+.env
+.idea/
+node_modules/
