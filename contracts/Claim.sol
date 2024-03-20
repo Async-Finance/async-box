@@ -9,6 +9,7 @@ contract Claim is Ownable {
     mapping (address => uint) public claimRecord;
     uint256 public startTime;
     uint256 public endTime;
+    event ClaimEvent(address indexed to, uint256 value);
 
     constructor(address _token, uint256 _startTime, uint256 _endTime) Ownable(msg.sender) {
         require(_token != address(0));
@@ -24,11 +25,17 @@ contract Claim is Ownable {
         require(block.timestamp >= startTime && block.timestamp <= endTime, "Claim not active");
         claimRecord[msg.sender] = 1;
         token.transfer(msg.sender, 1 ** token.decimals());
+        emit ClaimEvent(msg.sender, 1 ** token.decimals());
     }
 
-    function withdraw() public onlyOwner {
-        uint256 _balance = token.balanceOf(address(this));
-        require(_balance > 0, "All token has been claimed.");
-        token.transfer(msg.sender, _balance);
+    function withdraw(address target) public onlyOwner {
+        ERC20 _token = token;
+        if (target != address(0)) {
+            _token = ERC20(token);
+        }
+        uint256 _erc20_balance = _token.balanceOf(address(this));
+        if (_erc20_balance > 0) {
+            _token.transfer(msg.sender, _erc20_balance);
+        }
     }
 }
