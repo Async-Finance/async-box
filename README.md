@@ -14,7 +14,7 @@ TODO...
 ## Deploy AsyncBox.sol
 Change the `owner` Param in `ignition/parameters.json`.
 ```
-npx hardhat ignition deploy ignition/modules/AsyncBox.ts --network MerlinTestnet --parameters ignition/parameters.json --verify
+npx hardhat ignition deploy ignition/modules/Aurora.ts --network MerlinTestnet --parameters ignition/parameters.json --verify
 ```
 ## Deploy Claim.sol
 Change the `token` Param in `ignition/parameters.json`. Should be the deployed AsyncBox token address.

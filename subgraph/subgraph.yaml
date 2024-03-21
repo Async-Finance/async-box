@@ -4,11 +4,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: Claim
-    network: merlin-testnet
+    network: zklink-testnet
     source:
-      address: "0x27E435FF4871f3d69BC81aC2A7E38796bdA6e18A"
+      address: "0x6769edc526186cc77074554192B320B79a5BF1d1"
       abi: Claim
-      startBlock: 3689860
+      startBlock: 18142
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7

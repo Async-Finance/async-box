@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "deploy-asyncbox": "hardhat ignition deploy ignition/modules/AsyncBox.ts --network zkLinkTestnet --parameters ignition/parameters.json --verify",
-    "deploy-claim": "hardhat ignition deploy ignition/modules/Claim.ts --network zkLinkTestnet --parameters ignition/parameters.json --verify",
+    "deploy-aurora": "hardhat ignition deploy ignition/modules/Aurora.ts --network MerlinTestnet --parameters ignition/parameters.json",
+    "deploy-claim": "hardhat ignition deploy ignition/modules/Claim.ts --network MerlinTestnet --parameters ignition/parameters.json --verify",
     "deploy-zksync": "hardhat deploy-zksync --script deploy.ts",
     "compile": "hardhat compile",
     "clean": "hardhat clean",

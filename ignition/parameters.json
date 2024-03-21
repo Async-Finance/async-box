@@ -1,8 +1,6 @@
 {
-  "AsyncBox": {
-    "owner": "0xAE14BEB9Da175b3405DA9A64dD14a6613Efbe9f8"
+  "Aurora": {
+    "owner": ""
   },
-  "Claim": {
-    "token": "0x9C708EF11C247094848Fa508e245D6a835C78F95"
-  }
+  "Claim": {}
 }

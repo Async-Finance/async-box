@@ -40,7 +40,8 @@ const config: HardhatUserConfig = {
   },
   etherscan: {
     apiKey: {
-      MerlinTestnet: "merlintestnet"
+      MerlinTestnet: "merlintestnet",
+      Merlin: 'merlin'
     },
     customChains: [
       {

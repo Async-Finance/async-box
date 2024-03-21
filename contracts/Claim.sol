@@ -5,33 +5,47 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Claim is Ownable {
-    ERC20 public token;
+    address public token;
     mapping (address => uint) public claimRecord;
     uint256 public startTime;
     uint256 public endTime;
     event ClaimEvent(address indexed to, uint256 value);
 
-    constructor(address _token, uint256 _startTime, uint256 _endTime) Ownable(msg.sender) {
+    constructor() Ownable(msg.sender) {}
+
+    function setToken(address _token) public onlyOwner {
         require(_token != address(0));
-        token = ERC20(_token);
+        token = _token;
+    }
+
+    function setStartTime(uint256 _startTime) public onlyOwner {
         startTime = _startTime;
+    }
+
+    function setEndTime(uint256 _endTime) public onlyOwner {
         endTime = _endTime;
     }
 
     function claim() public {
-        uint256 _balance = token.balanceOf(address(this));
+        require(token != address(0), "Set token first.");
+        ERC20 _token = ERC20(token);
+        uint256 _balance = _token.balanceOf(address(this));
         require(_balance > 0, "All token has been claimed.");
         require(claimRecord[msg.sender] != 1, "You have claimed.");
-        require(block.timestamp >= startTime && block.timestamp <= endTime, "Claim not active");
+        require(startTime > 0, "Claim not started.");
+        require(block.timestamp >= startTime, "Claim not started.");
+        if (endTime > 0) {
+            require(block.timestamp <= endTime, "Claim has ended.");
+        }
         claimRecord[msg.sender] = 1;
-        token.transfer(msg.sender, 1 ** token.decimals());
-        emit ClaimEvent(msg.sender, 1 ** token.decimals());
+        _token.transfer(msg.sender, 1 * 10** _token.decimals());
+        emit ClaimEvent(msg.sender, 1 * 10** _token.decimals());
     }
 
     function withdraw(address target) public onlyOwner {
-        ERC20 _token = token;
+        ERC20 _token = ERC20(token);
         if (target != address(0)) {
-            _token = ERC20(token);
+            _token = ERC20(target);
         }
         uint256 _erc20_balance = _token.balanceOf(address(this));
         if (_erc20_balance > 0) {

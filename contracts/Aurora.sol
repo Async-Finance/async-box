@@ -4,14 +4,14 @@ pragma solidity ^0.8.0;
 import "./ERC404/ERC404.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 
-contract AsyncBox is ERC404 {
+contract Aurora is ERC404 {
     string public dataURI;
     string public baseTokenURI;
 
     constructor(
         address _owner
-    ) ERC404("AsyncBox", "ASYNCBOX", 18, 10000, _owner) {
-        balanceOf[_owner] = 10000 * 10 ** 18;
+    ) ERC404("Aurora", "AURORA", 18, 100000, _owner) {
+        balanceOf[_owner] = 100000 * 10 ** 18;
     }
 
     function setDataURI(string memory _dataURI) public onlyOwner {
@@ -56,8 +56,8 @@ contract AsyncBox is ERC404 {
 
             string memory jsonPreImage = string.concat(
                 string.concat(
-                    string.concat('{"name": "AsyncBox #', Strings.toString(id)),
-                    '","description":"A collection of 10,000 Replicants enabled by ERC404, an experimental token standard.","external_url":"https://pandora.build","image":"'
+                    string.concat('{"name": "Aurora #', Strings.toString(id)),
+                    '","description":"A collection of 100,000 Replicants enabled by ERC404, an experimental token standard.","external_url":"https://async.finance","image":"'
                 ),
                 string.concat(dataURI, image)
             );

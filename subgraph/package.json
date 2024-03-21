@@ -4,8 +4,10 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://dev.graph.async.finance/merlintestnet/admin samuel/merlin-testnet-claim",
-    "create": "graph create --node https://dev.graph.async.finance/merlintestnet/admin samuel/merlin-testnet-claim",
+    "deploy-merlin-testnet": "graph deploy --node https://dev-merlin-testnet.graph.async.finance/admin samuel/merlin-testnet-claim",
+    "create-merlin-testnet": "graph create --node https://dev-merlin-testnet.graph.async.finance/admin samuel/merlin-testnet-claim",
+    "deploy-zklink-testnet": "graph deploy --node https://dev-zklink-testnet.graph.async.finance/admin samuel/zklink-testnet-claim",
+    "create-zklink-testnet": "graph create --node https://dev-zklink-testnet.graph.async.finance/admin samuel/zklink-testnet-claim",
     "create-local": "graph create --node http://localhost:8020/ samuel/merlin-testnet-claim",
     "remove-local": "graph remove --node http://localhost:8020/ samuel/merlin-testnet-claim",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 samuel/merlin-testnet-claim",
