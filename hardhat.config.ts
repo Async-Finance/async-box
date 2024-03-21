@@ -29,7 +29,7 @@ const config: HardhatUserConfig = {
       url: "https://rpc.zklink.io",
       zksync: true,
       ethNetwork: "mainnet",
-      verifyURL: "https://explorer.zklink.io/contracts_verification",
+      verifyURL: "https://explorer.zklink.io/contract_verification",
     },
     zkLinkTestnet: {
       url: "https://goerli.rpc.zklink.io",
