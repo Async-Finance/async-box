@@ -11,7 +11,7 @@ contract Claim is Ownable {
     uint256 public endTime;
     event ClaimEvent(address indexed to, uint256 value);
 
-    constructor() Ownable(msg.sender) {}
+    constructor() Ownable() {}
 
     function setToken(address _token) public onlyOwner {
         require(_token != address(0));

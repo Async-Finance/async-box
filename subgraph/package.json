@@ -6,7 +6,7 @@
     "build": "graph build",
     "deploy-merlin-testnet": "graph deploy --node https://dev-merlin-testnet.graph.async.finance/admin samuel/merlin-testnet-claim",
     "create-merlin-testnet": "graph create --node https://dev-merlin-testnet.graph.async.finance/admin samuel/merlin-testnet-claim",
-    "deploy-zklink-testnet": "graph deploy --node https://dev-zklink-testnet.graph.async.finance/admin samuel/zklink-testnet-claim",
+    "deploy-zklink-testnet": "graph -i https://ipfs.network.thegraph.com deploy --node https://dev-zklink-testnet.graph.async.finance/admin samuel/zklink-testnet-claim",
     "create-zklink-testnet": "graph create --node https://dev-zklink-testnet.graph.async.finance/admin samuel/zklink-testnet-claim",
     "create-local": "graph create --node http://localhost:8020/ samuel/merlin-testnet-claim",
     "remove-local": "graph remove --node http://localhost:8020/ samuel/merlin-testnet-claim",
