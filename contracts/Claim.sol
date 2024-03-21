@@ -38,8 +38,8 @@ contract Claim is Ownable {
             require(block.timestamp <= endTime, "Claim has ended.");
         }
         claimRecord[msg.sender] = 1;
-        _token.transfer(msg.sender, 1 * 10** _token.decimals());
-        emit ClaimEvent(msg.sender, 1 * 10** _token.decimals());
+        _token.transfer(msg.sender, 1 * 10 ** _token.decimals());
+        emit ClaimEvent(msg.sender, 1 * 10 ** _token.decimals());
     }
 
     function withdraw(address target) public onlyOwner {
