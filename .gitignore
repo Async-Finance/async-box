@@ -5,3 +5,6 @@ cache
 .env
 .idea/
 node_modules/
+artifacts-zk
+cache-zk
+deployments-zk

@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "deploy-asyncbox": "hardhat ignition deploy ignition/modules/AsyncBox.ts --network zkLinkTestnet --parameters ignition/parameters.json --verify",
+    "deploy-claim": "hardhat ignition deploy ignition/modules/Claim.ts --network zkLinkTestnet --parameters ignition/parameters.json --verify",
+    "deploy-zksync": "hardhat deploy-zksync --script deploy.ts",
+    "compile": "hardhat compile",
+    "clean": "hardhat clean",
+    "test": "hardhat test --network hardhat"
+  },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.6",
     "@nomicfoundation/hardhat-ethers": "^3.0.5",
@@ -13,6 +21,11 @@
     "@nomicfoundation/hardhat-verify": "^2.0.5",
     "@nomicfoundation/ignition-core": "^0.15.0",
     "@nomiclabs/hardhat-etherscan": "^3.1.8",
+    "@matterlabs/hardhat-zksync-deploy": "^1.2.1",
+    "@matterlabs/hardhat-zksync-node": "^1.0.2",
+    "@matterlabs/hardhat-zksync-solc": "^1.1.4",
+    "@matterlabs/hardhat-zksync-verify": "^1.4.1",
+    "@matterlabs/zksync-contracts": "^0.6.1",
     "@typechain/ethers-v6": "^0.5.1",
     "@typechain/hardhat": "^9.1.0",
     "@types/chai": "4",
